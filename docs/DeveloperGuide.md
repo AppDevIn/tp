@@ -339,21 +339,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Term | Definition |
 |------|------------|
-| **Patient Record** | A complete data entry containing patient's personal information, medical condition, income details, and associated notes |
+| **Mainstream OS** | Windows, Linux, Unix, MacOS |
+| **Patient Record** | A data entry with a patient's name, phone, address, income, medical info, and notes|
 | **Quick Note** | A brief text annotation attached to a patient record, typically captured during or immediately after a session |
 | **Session** | A meeting or consultation between a social worker and a patient |
-| **Command-Line Interface (CLI)** | Text-based user interface where users interact with the application by typing commands |
-| **Patient ID** | A unique internal identifier automatically assigned to each patient record for system reference |
-| **Filtering/Search** | The process of finding specific patient records based on one or more criteria (name, condition, income) |
 | **Duplicate Patient** | A patient record with identical name (case-insensitive) and phone number as an existing record |
 | **Medical Information** | Health-related details about a patient including conditions, medications, or treatment notes |
-| **Income Level** | The financial income information of a patient, used for determining eligibility for various support programs |
-| **Case Management** | The practice of coordinating and monitoring services provided to patients |
-| **Hospital Database** | The official patient information system maintained by the hospital (which social workers cannot access) |
 | **Partial Data** | Incomplete patient information, common during initial visits or when full details are not available |
 | **Prefix** | Command parameter identifiers (e.g., n/ for name, p/ for phone) used in the CLI syntax |
-| **Validation** | The process of checking user input against defined rules and formats |
-| **Tech-Savvy** | Users who are comfortable with keyboard shortcuts and command-line interfaces |
 
 --------------------------------------------------------------------------------------------------------------------
 
