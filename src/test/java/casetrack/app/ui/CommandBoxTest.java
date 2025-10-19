@@ -140,12 +140,10 @@ public class CommandBoxTest {
             TextField textField = getCommandTextField(commandBox);
             textField.setText("error command");
 
-            // Trigger error to add error style
             invokeHandleCommandEntered(commandBox);
             assertTrue(textField.getStyleClass().contains(CommandBox.ERROR_STYLE_CLASS),
                     "Error style should be present");
 
-            // Change text to trigger listener
             textField.setText("new text");
 
             assertFalse(textField.getStyleClass().contains(CommandBox.ERROR_STYLE_CLASS),
@@ -163,7 +161,6 @@ public class CommandBoxTest {
             CommandBox commandBox = new CommandBox(executor);
             TextField textField = getCommandTextField(commandBox);
 
-            // Trigger error multiple times
             textField.setText("error1");
             invokeHandleCommandEntered(commandBox);
 
@@ -173,7 +170,6 @@ public class CommandBoxTest {
             textField.setText("error3");
             invokeHandleCommandEntered(commandBox);
 
-            // Count error style occurrences
             long errorCount = textField.getStyleClass().stream()
                     .filter(s -> s.equals(CommandBox.ERROR_STYLE_CLASS))
                     .count();
