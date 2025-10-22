@@ -30,7 +30,7 @@ public class PersonCardTest {
             CountDownLatch latch = new CountDownLatch(1);
             try {
                 Platform.startup(latch::countDown);
-            } catch (IllegalStateException e) {
+            } catch (IllegalStateException | UnsupportedOperationException e) {
                 latch.countDown();
             }
             latch.await(5, TimeUnit.SECONDS);
