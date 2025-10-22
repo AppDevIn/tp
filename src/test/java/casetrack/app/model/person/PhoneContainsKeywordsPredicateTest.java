@@ -72,16 +72,13 @@ public class PhoneContainsKeywordsPredicateTest {
 
     @Test
     public void test_invalidPhoneKeywords_returnsFalse() {
-        // Keywords with invalid phone formats should be filtered out
         PhoneContainsKeywordsPredicate predicate =
                 new PhoneContainsKeywordsPredicate(Arrays.asList("(123)", "+65", "12-34"));
         assertFalse(predicate.test(new PersonBuilder().withPhone("12345678").build()));
 
-        // Mix of valid and invalid keywords - only valid ones are checked
         predicate = new PhoneContainsKeywordsPredicate(Arrays.asList("123", "(456)", "789"));
         assertTrue(predicate.test(new PersonBuilder().withPhone("12345678").build()));
 
-        // Single invalid keyword
         predicate = new PhoneContainsKeywordsPredicate(Arrays.asList("+65"));
         assertFalse(predicate.test(new PersonBuilder().withPhone("65123456").build()));
     }
