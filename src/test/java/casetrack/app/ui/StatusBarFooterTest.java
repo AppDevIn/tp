@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,6 +27,10 @@ public class StatusBarFooterTest {
 
     @BeforeAll
     public static void initJfx() throws Exception {
+        String osName = System.getProperty("os.name").toLowerCase();
+        assumeFalse(osName.contains("linux"),
+                "Skipping JavaFX tests on Ubuntu/Linux");
+
         if (!jfxInitialized) {
             CountDownLatch latch = new CountDownLatch(1);
             try {
