@@ -1,9 +1,9 @@
 package casetrack.app.model.person;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-import casetrack.app.commons.util.StringUtil;
 import casetrack.app.commons.util.ToStringBuilder;
 
 /**
@@ -18,8 +18,15 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
+        if (keywords.isEmpty()) return false;
+        String[] nameWords = person.getName().fullName.split("\\s+");
+        outer: for (int i = 0; i <= nameWords.length - keywords.size(); i++) {
+            for (int j = 0; j < keywords.size(); j++) {
+                if (!nameWords[i + j].toLowerCase().startsWith(keywords.get(j).toLowerCase())) continue outer;
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override
